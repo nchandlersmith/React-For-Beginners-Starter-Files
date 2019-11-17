@@ -4,8 +4,8 @@ import Router from "./components/Router";
 import "./css/style.css";
 
 render(
-  <p>
+  <div>
     <Router />
-  </p>,
+  </div>,
   document.querySelector("#main")
 );
