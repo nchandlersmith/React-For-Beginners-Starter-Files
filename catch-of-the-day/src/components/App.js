@@ -10,13 +10,21 @@ class App extends React.Component {
     fishes: {},
     order: {}
   };
+
   addFish = fish => {
     const fishes = { ...this.state.fishes };
     fishes[`fish${Date.now()}`] = fish;
     this.setState({ fishes });
   };
+
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes });
+  };
+
+  addToOrder = key => {
+    const order = { ...this.state.order };
+    order[key] = order[key] + 1 || 1;
+    this.setState({ order });
   };
 
   render() {
