@@ -37,7 +37,7 @@ class EditFishForm extends React.Component {
         </select>
         <textarea
           type="text"
-          name="description"
+          name="desc"
           onChange={this.handleChange}
           value={this.props.fish.desc}
         />
