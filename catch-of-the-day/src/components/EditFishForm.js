@@ -2,10 +2,12 @@ import React from "react";
 
 class EditFishForm extends React.Component {
   handleChange = event => {
-    console.log(event.currentTarget.name);
-    console.log(event.currentTarget.value);
-    const updatedFish = { ...this.props.fish };
-    console.log(updatedFish);
+    const { name, value } = event.currentTarget;
+    const updatedFish = {
+      ...this.props.fish,
+      [name]: value
+    };
+    this.props.updateFish(this.props.fishKey, updatedFish);
   };
   render() {
     return (
