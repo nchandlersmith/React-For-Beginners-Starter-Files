@@ -46,6 +46,12 @@ class App extends React.Component {
     this.setState({ fishes });
   };
 
+  deleteFish = key => {
+    const fishes = { ...this.state.fishes };
+    fishes[key] = null; // Set null to remove from firebase. Can't use ```delete```.
+    this.setState({ fishes });
+  };
+
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes });
   };
@@ -75,6 +81,7 @@ class App extends React.Component {
         <Order fishes={this.state.fishes} order={this.state.order} />
         <Inventory
           addFish={this.addFish}
+          deleteFish={this.deleteFish}
           fishes={this.state.fishes}
           loadSampleFishes={this.loadSampleFishes}
           updateFish={this.updateFish}
