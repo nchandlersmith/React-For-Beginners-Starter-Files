@@ -80,12 +80,15 @@ class App extends React.Component {
                 fishKey={key}
                 details={this.state.fishes[key]}
                 addToOrder={this.addToOrder}
-                removeFromOrder={this.removeFromOrder}
               />
             ))}
           </ul>
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order} />
+        <Order
+          fishes={this.state.fishes}
+          order={this.state.order}
+          removeFromOrder={this.removeFromOrder}
+        />
         <Inventory
           addFish={this.addFish}
           deleteFish={this.deleteFish}
