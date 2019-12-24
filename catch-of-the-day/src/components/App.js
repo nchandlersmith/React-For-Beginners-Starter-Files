@@ -62,6 +62,12 @@ class App extends React.Component {
     this.setState({ order });
   };
 
+  removeFromOrder = key => {
+    const order = { ...this.state.order };
+    delete order[key];
+    this.setState({ order });
+  };
+
   render() {
     return (
       <div className="catch-of-the-day">
@@ -74,6 +80,7 @@ class App extends React.Component {
                 fishKey={key}
                 details={this.state.fishes[key]}
                 addToOrder={this.addToOrder}
+                removeFromOrder={this.removeFromOrder}
               />
             ))}
           </ul>
