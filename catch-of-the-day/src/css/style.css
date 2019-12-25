@@ -1,6 +1,6 @@
 .order-enter {
-  -webkit-transform: translateX(-120%);
-          transform: translateX(-120%);
+  -webkit-transform: translateX(-120%) rotate(0);
+          transform: translateX(-120%) rotate(0);
   -webkit-transition: 0.5s;
   transition: 0.5s;
   max-height: 0;
@@ -8,20 +8,43 @@
 }
 .order-enter.order-enter-active {
   max-height: 60px;
-  -webkit-transform: translateX(0%);
-          transform: translateX(0%);
+  -webkit-transform: translateX(0%) rotate(360deg);
+          transform: translateX(0%) rotate(360deg);
   padding: 2rem 0 !important;
 }
 .order-exit {
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  -webkit-transform: translateX(0) rotate(0);
+          transform: translateX(0) rotate(0);
 }
 .order-exit.order-exit-active {
-  -webkit-transform: translateX(120%);
-          transform: translateX(120%);
+  -webkit-transform: translateX(120%) rotate(360deg);
+          transform: translateX(120%) rotate(360deg);
   padding: 0;
+}
+.count-enter {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.count-enter.count-enter-active {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+.count-exit {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+.count-exit.count-exit-active {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
 @font-face {
   font-family: "haymakerregular";
