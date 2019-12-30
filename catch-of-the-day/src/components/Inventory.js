@@ -45,7 +45,10 @@ class Inventory extends React.Component {
     firebaseApp
       .auth()
       .signInWithPopup(authProvider)
-      .then(this.authHandler);
+      .then(this.authHandler)
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   logout = async () => {
