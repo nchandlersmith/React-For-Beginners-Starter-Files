@@ -57,8 +57,8 @@ class Inventory extends React.Component {
     if (this.state.loginError) {
       return (
         <div>
-          {this.state.loginError}
-          {logout}
+          <p>{this.state.loginError}</p>
+          <p>{logout}</p>
         </div>
       );
     }
