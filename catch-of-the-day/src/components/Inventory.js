@@ -16,19 +16,12 @@ class Inventory extends React.Component {
 
   state = {
     uid: null,
-    owner: null
+    owner: null,
+    loginError: null
   };
 
   authHandler = async authData => {
-    console.log("-----> AuthData <-----");
-    console.log(authData);
-    console.log("-----> uid <-----");
-    console.log(authData.user.uid);
     const store = await base.fetch(this.props.storeId, { context: this });
-    console.log("-----> Store <-----");
-    console.log(store);
-    console.log("-----> Store Owner <-----");
-    console.log(store.owner);
     if (!store.owner) {
       await base.post(`${this.props.storeId}/owner`, {
         data: authData.user.uid
@@ -48,17 +41,28 @@ class Inventory extends React.Component {
       .then(this.authHandler)
       .catch(error => {
         console.log(error);
+        this.setState({ loginError: error.message });
       });
   };
 
   logout = async () => {
     console.log("Logging out...");
     await firebase.auth().signOut();
-    this.setState({ uid: null });
+    this.setState({ uid: null, loginError: null });
   };
 
   render() {
     const logout = <button onClick={this.logout}>Log Out!</button>;
+
+    if (this.state.loginError) {
+      return (
+        <div>
+          {this.state.loginError}
+          {logout}
+        </div>
+      );
+    }
+
     if (!this.state.uid) {
       return <Login authenticate={this.authenticate} />;
     }
