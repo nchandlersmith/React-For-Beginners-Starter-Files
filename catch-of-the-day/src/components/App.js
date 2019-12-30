@@ -14,7 +14,7 @@ class App extends React.Component {
   };
 
   static propTypes = {
-    natch: PropTypes.object
+    match: PropTypes.object
   };
 
   componentDidMount() {
@@ -100,6 +100,7 @@ class App extends React.Component {
           fishes={this.state.fishes}
           loadSampleFishes={this.loadSampleFishes}
           updateFish={this.updateFish}
+          storeId={this.props.match.params.storeId}
         />
       </div>
     );
