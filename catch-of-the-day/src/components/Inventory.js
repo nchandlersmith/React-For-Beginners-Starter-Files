@@ -52,7 +52,7 @@ class Inventory extends React.Component {
   };
 
   render() {
-    const logout = <button onClick={this.logout}>Log Out!</button>;
+    const logout = <button onClick={this.logout}>Log Out</button>;
 
     if (this.state.loginError) {
       return (
@@ -68,7 +68,12 @@ class Inventory extends React.Component {
     }
 
     if (this.state.uid !== this.state.owner) {
-      return <div>Sorry you are not the owner! {logout}</div>;
+      return (
+        <div>
+          <p>Sorry you are not the owner!</p>
+          <p>{logout}</p>
+        </div>
+      );
     }
 
     return (
